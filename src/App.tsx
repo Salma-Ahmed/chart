@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GanttComponent from "./components/ganttComponent";
+import GanttContainer from "./components/ganttContainer";
+
 
 function App() {
-  return (
+  const EnhancedWrapped = GanttContainer(GanttComponent);
+  return (  
     <div className="App">
-     hello
+      <EnhancedWrapped/>
     </div>
   );
 }
