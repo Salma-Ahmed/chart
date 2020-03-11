@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 import GanttComponent from "./components/ganttComponent";
 import GanttContainer from "./components/ganttContainer";
+import {observer} from "mobx-react";
 
 
 function App() {
-  const EnhancedWrapped = GanttContainer(GanttComponent);
+  const EnhancedWrapped = observer(GanttContainer(GanttComponent));
   return (  
     <div className="App">
       <EnhancedWrapped/>
