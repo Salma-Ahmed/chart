@@ -21,11 +21,11 @@ const useStyles = makeStyles({
   }
 });
 
-const Timeline: React.FC<{ earliestDate: string; totalNoOfDays: number, dayWidth: number }> = ({
-  earliestDate,
-  totalNoOfDays,
-  dayWidth
-}): JSX.Element => {
+const Timeline: React.FC<{
+  earliestDate: string;
+  totalNoOfDays: number;
+  dayWidth: number;
+}> = ({ earliestDate, totalNoOfDays, dayWidth }): JSX.Element => {
   const classes = useStyles();
 
   const dayItems = [];
@@ -34,7 +34,7 @@ const Timeline: React.FC<{ earliestDate: string; totalNoOfDays: number, dayWidth
       .add(i, "day")
       .toDate();
     dayItems.push(
-      <div key={uuid()} className={classes.day} style={{width: dayWidth}}>
+      <div key={uuid()} className={classes.day} style={{ width: dayWidth }}>
         <Moment format="MMM DD">{date}</Moment>
       </div>
     );

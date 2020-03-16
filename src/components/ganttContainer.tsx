@@ -49,13 +49,13 @@ const GanttContainer = (Wrapped: any) => {
   };
 
   const elements = {
-   topics,
-   dayWidth,
-   earliestDate,
-   latestDate,
-   totalNoOfDays: calculateDuration(latestDate, earliestDate),
-   calculateLeft: calculateLeft,
- };
+    topics,
+    dayWidth,
+    earliestDate,
+    latestDate,
+    totalNoOfDays: calculateDuration(latestDate, earliestDate),
+    calculateLeft: calculateLeft
+  };
 
   const EnhancedComponent = () => {
     return <Wrapped {...elements} />;

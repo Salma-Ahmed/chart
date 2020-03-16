@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     borderRight: "1px solid lightgray",
     borderTop: "1px solid lightgray",
     borderBottom: "1px solid lightgray",
-    paddingLeft:"10px",
+    paddingLeft: "10px"
   }
 });
 const Titles: React.FC = (): JSX.Element => {

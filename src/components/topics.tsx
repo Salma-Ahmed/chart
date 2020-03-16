@@ -6,21 +6,21 @@ import { v4 as uuid } from "uuid";
 
 const useStyles = makeStyles({
   bar: {
-    height: "15px",
     borderRadius: "3px",
     cursor: "pointer",
     position: "relative",
-    marginBottom: "10px"
-  },
+    marginBottom: "10px",
+    textAlign:"center",
+  }, 
   topic: {
-    borderBottom: "1px solid lightgray"
+    borderBottom: "1px solid lightgray",
   },
   content: {
     position: "relative",
     borderRadius: "3px",
     cursor: "pointer",
     marginBottom: "5px",
-    textAlign:"center",
+    textAlign: "center",
     "&:hover div": {
       visibility: "visible",
       opacity: 1
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     width: "200px",
     left: "50%",
     top: "100%",
-    textAlign:"left",
+    textAlign: "left",
     transform: "translateX(-50%)",
     backgroundColor: "#fff",
     marginTop: "5px",
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
   campaign: {
     borderRight: "1px solid lightgray",
     paddingLeft: "10px",
-    padding: "5px 0"
+    padding: "5px 0",
   },
   topicTitle: {
     borderRight: "1px solid lightgray",
@@ -92,14 +92,14 @@ const Topics: React.FC<{
                     left: `${calculateLeft(earliestDate, campaign.startDate) *
                       dayWidth}px`
                   }}
-                ></div>
+                >{campaign.title}</div>
                 {campaign.content?.map(item => (
                   <div
                     key={uuid()}
                     className={classes.content}
                     style={{
                       backgroundColor: campaign.color,
-                      left: `${calculateLeft(earliestDate, item.date) *
+                      marginLeft: `${calculateLeft(earliestDate, item.date) *
                         dayWidth}px`,
                       width: dayWidth
                     }}
@@ -121,4 +121,50 @@ const Topics: React.FC<{
 };
 
 export default Topics;
-  
+
+/**{topic.campaigns.map(campaign => (
+  <Grid container spacing={0} key={uuid()}>
+    <Grid item xs={10} sm={8} md={4} className={classes.campaign}>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
+          {campaign.title}
+        </Grid>
+        <Grid item xs={4}>
+          {campaign.startDate}
+        </Grid>
+        <Grid item xs={4}>
+          {campaign.endDate}
+        </Grid>
+      </Grid>
+    </Grid>
+    <Grid item xs={2} sm={4} md={8}>
+      <div
+        className={classes.bar}
+        style={{
+          backgroundColor: campaign.color,
+          width: `${(campaign.duration + 1) * dayWidth}px`,
+          left: `${calculateLeft(earliestDate, campaign.startDate) *
+            dayWidth}px`
+        }}
+      >{campaign.title}</div>
+      {campaign.content?.map(item => (
+        <div
+          key={uuid()}
+          className={classes.content}
+          style={{
+            backgroundColor: campaign.color,
+            marginLeft: `${calculateLeft(earliestDate, item.date) *
+              dayWidth}px`,
+            width: dayWidth
+          }}
+        >
+          {item.title}
+          <div className={classes.popover}>
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </Grid>
+  </Grid>
+))}**/
