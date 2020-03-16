@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   }, 
   topic: {
     borderBottom: "1px solid lightgray",
+    position:"relative",
   },
   content: {
     position: "relative",
@@ -122,49 +123,3 @@ const Topics: React.FC<{
 
 export default Topics;
 
-/**{topic.campaigns.map(campaign => (
-  <Grid container spacing={0} key={uuid()}>
-    <Grid item xs={10} sm={8} md={4} className={classes.campaign}>
-      <Grid container spacing={0}>
-        <Grid item xs={4}>
-          {campaign.title}
-        </Grid>
-        <Grid item xs={4}>
-          {campaign.startDate}
-        </Grid>
-        <Grid item xs={4}>
-          {campaign.endDate}
-        </Grid>
-      </Grid>
-    </Grid>
-    <Grid item xs={2} sm={4} md={8}>
-      <div
-        className={classes.bar}
-        style={{
-          backgroundColor: campaign.color,
-          width: `${(campaign.duration + 1) * dayWidth}px`,
-          left: `${calculateLeft(earliestDate, campaign.startDate) *
-            dayWidth}px`
-        }}
-      >{campaign.title}</div>
-      {campaign.content?.map(item => (
-        <div
-          key={uuid()}
-          className={classes.content}
-          style={{
-            backgroundColor: campaign.color,
-            marginLeft: `${calculateLeft(earliestDate, item.date) *
-              dayWidth}px`,
-            width: dayWidth
-          }}
-        >
-          {item.title}
-          <div className={classes.popover}>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-          </div>
-        </div>
-      ))}
-    </Grid>
-  </Grid>
-))}**/
