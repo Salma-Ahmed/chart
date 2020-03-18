@@ -7,7 +7,7 @@ import Topics from "./topics";
 
 const useStyles = makeStyles({
   mainContainer: {
-    // overflowX: "scroll",
+    display:"inline-block",
   }
 });
 
@@ -22,7 +22,8 @@ const GanttComponent: React.FC = (props: any) => {
     dayWidth
   } = props;
   return (
-    <Grid container spacing={0} className={classes.mainContainer}>
+    <div className={classes.mainContainer}>
+      <Grid spacing={0} container>
       <Grid item xs={10} sm={8} md={4}>
         <Titles />
       </Grid>
@@ -33,6 +34,7 @@ const GanttComponent: React.FC = (props: any) => {
           dayWidth={dayWidth}
         />
       </Grid>
+      </Grid>
       <Grid container spacing={0}>
         <Topics
           topics={topics}
@@ -41,7 +43,7 @@ const GanttComponent: React.FC = (props: any) => {
           dayWidth={dayWidth}
         />
       </Grid>
-    </Grid>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 const moment = require("moment");
 const useStyles = makeStyles({
   timeline: {
-    display: "inline-flex"
+    display: "inline-table"
   },
   day: {
     borderRight: "1px solid lightgray",
@@ -17,7 +17,8 @@ const useStyles = makeStyles({
     color: "#fff",
     backgroundColor: "darkgrey",
     height: "30px",
-    lineHeight: "30px"
+    lineHeight: "30px",
+    display:"table-cell",
   }
 });
 

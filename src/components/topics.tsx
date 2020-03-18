@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Topic from "../interfaces/topic.interface";
 import { v4 as uuid } from "uuid";
+import Draggable from "react-draggable";
 
 const useStyles = makeStyles({
   bar: {
@@ -10,11 +11,11 @@ const useStyles = makeStyles({
     cursor: "pointer",
     position: "relative",
     marginBottom: "10px",
-    textAlign:"center",
-  }, 
+    textAlign: "center"
+  },
   topic: {
     borderBottom: "1px solid lightgray",
-    position:"relative",
+    position: "relative"
   },
   content: {
     position: "relative",
@@ -47,7 +48,7 @@ const useStyles = makeStyles({
   campaign: {
     borderRight: "1px solid lightgray",
     paddingLeft: "10px",
-    padding: "5px 0",
+    padding: "5px 0"
   },
   topicTitle: {
     borderRight: "1px solid lightgray",
@@ -62,6 +63,7 @@ const Topics: React.FC<{
   dayWidth: number;
 }> = ({ topics, calculateLeft, earliestDate, dayWidth }): JSX.Element => {
   const classes = useStyles();
+
   return (
     <>
       {topics.map(topic => (
@@ -84,18 +86,22 @@ const Topics: React.FC<{
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={2} sm={4} md={8}>
-                <div
-                  className={classes.bar}
-                  style={{
-                    backgroundColor: campaign.color,
-                    width: `${(campaign.duration + 1) * dayWidth}px`,
-                    left: `${calculateLeft(earliestDate, campaign.startDate) *
-                      dayWidth}px`
-                  }}
-                >{campaign.title}</div>
-                {campaign.content?.map(item => (
+              <Grid style={{position:"relative"}} item xs={2} sm={4} md={8}>
+                <Draggable axis="x" grid={[dayWidth, dayWidth]} bounds="parent">
                   <div
+                    className={classes.bar}
+                    style={{
+                      backgroundColor: campaign.color,
+                      width: `${(campaign.duration + 1) * dayWidth}px`,
+                      left: `${calculateLeft(earliestDate, campaign.startDate) *
+                        dayWidth}px`
+                    }}
+                  >
+                    {campaign.title}
+                  </div>
+                </Draggable>
+                {campaign.content?.map(item => (
+                  <div  
                     key={uuid()}
                     className={classes.content}
                     style={{
@@ -122,4 +128,3 @@ const Topics: React.FC<{
 };
 
 export default Topics;
-

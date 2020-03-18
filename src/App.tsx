@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import GanttComponent from "./components/ganttComponent";
-import GanttContainer from "./components/ganttContainer";
+import GanttContainer from "./containers/ganttContainer";
 import {observer} from "mobx-react";
 
 
